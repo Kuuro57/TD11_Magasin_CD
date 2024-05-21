@@ -26,5 +26,7 @@ replay_pid*
 ### IntelliJ ###
 .idea
 *.iml
+out/*
 
 ### Other ###
+magasinCD_donnees/*

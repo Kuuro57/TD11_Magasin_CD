@@ -68,6 +68,61 @@ public class Magasin {
 		return(res);
 	}
 
-	// TODO  ajouter une methode de tri
+	/**
+	 * Méthode trierAriste qui tri les CD en fonction du nom de l'artiste
+	 * @return une List de CDs
+	 */
+	public ArrayList<CD> trierAriste() {
+		// Initialisation des variables
+		ArrayList<CD> newListeCds = new ArrayList<>();
+		String artiste1 = "";
+		String artiste2 = "";
+		boolean cdAjouter = false;
+		// On boucle sur tous les cd du Magasin
+		for (CD cd : this.listeCds) {
+			// Si la nouvelle liste est vide
+			if (newListeCds.isEmpty()) {
+				// On ajoute le cd
+				newListeCds.add(cd);
+			}
+			// Sinon
+			else {
+				// On récupère l'artiste du cd du Magasin
+				artiste1 = cd.toString().split(" ")[0];
+				// On boucle sur la nouvelle liste
+				for (int i = 0; i < newListeCds.size(); i++) {
+					// Si on a pas ajouté de cd
+					if (!cdAjouter) {
+						// On récupère le cd qu'on regarde de la nouvelle liste
+						CD cdNewListe = newListeCds.get(i);
+						// On récupère l'artiste du cd de la nouvelle liste
+						artiste2 = cdNewListe.toString().split(" ")[0];
+						// Si ils ont le même artiste
+						if (artiste1.compareTo(artiste2) == 0) {
+							// On ajoute le cd derrière celui qu'on regarde
+							newListeCds.add(i, cd);
+							cdAjouter = true;
+						}
+						// Si il a un plus petit nom (avant dans l'alphabet)
+						if (artiste1.compareTo(artiste2) < 0) {
+							// On ajoute le cd derrière celui qu'on regarde
+							newListeCds.add(i, cd);
+							cdAjouter = true;
+						}
+						// Si on est à la fin de la liste
+						if (i == newListeCds.size() - 1) {
+							// On ajoute à la fin de la liste le cd
+							newListeCds.addLast(cd);
+							cdAjouter = true;
+						}
+					}
+				}
+				// On remet le booléen cdAjouter à false
+				cdAjouter = false;
+			}
+		}
+		// On retourne la liste
+		return newListeCds;
+	}
 
 }

@@ -21,21 +21,24 @@ public class MainChargeurMagasin {
 	 */
 	public static void main(String args[]) throws IOException {
 		
-		String repertoire = "../magasinCD_donnees/musicbrainzSimple/";
+		String repertoire = "magasinCD_donnees/musicbrainzSimple/";
 		ChargeurMagasin charge = new ChargeurMagasin(repertoire);
 		Magasin resultat = charge.chargerMagasin();
+
+		/*
 		System.out.println(resultat);
 
 		Scanner sc = new Scanner(System.in);
 		sc.nextLine();
 		sc.close();
+		*/
+		System.out.println("Lancement de la méthode");
+		System.out.println(resultat.trierAriste());
 
-		resultat.trierAriste();
-		System.out.println(resultat);
-
+		/*
 		resultat.trierAlbum();
 		System.out.println(resultat);
-
+		*/
 	}
 
 }
