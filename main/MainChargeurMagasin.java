@@ -25,19 +25,10 @@ public class MainChargeurMagasin {
 		ChargeurMagasin charge = new ChargeurMagasin(repertoire);
 		Magasin resultat = charge.chargerMagasin();
 
-		/*
-		System.out.println(resultat);
-
-		Scanner sc = new Scanner(System.in);
-		sc.nextLine();
-		sc.close();
-		*/
-		System.out.println("Lancement de la méthode");
 		System.out.println(resultat.trierAriste());
 
 		/*
-		resultat.trierAlbum();
-		System.out.println(resultat);
+		System.out.println(resultat.trierAlbum());
 		*/
 	}
 
